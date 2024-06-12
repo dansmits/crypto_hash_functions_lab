@@ -44,7 +44,7 @@ Cell [0;32mIn[8], line 8[0m, in [0;36mverify_password[0;34m(user_name, passw
 [1;32m      5[0m                        [38;5;124m'[39m[38;5;124mHASH_CODE[39m[38;5;124m'[39m: hashlib[38;5;241m.[39msha256(hash_object)
 [1;32m      6[0m                     }
 [1;32m      7[0m             }        
-[0;32m----> 8[0m [38;5;28;01mreturn[39;00m [43mpassword_database[49m[43m[[49m[43muser_name[49m[43m][49m[43m[[49m[43msalt[49m[43m][49m[38;5;241m.[39mhexdigest() [38;5;241m==[39m checker[38;5;241m.[39mhexdigest()
+[0;32m----> 8[0m [38;5;28;01mreturn[39;00m [43mpassword_database[49m[43m[[49m[43muser_name[49m[43m][49m[43m[[49m[43mpassword[49m[43m][49m[38;5;241m.[39mhexdigest() [38;5;241m==[39m checker[38;5;241m.[39mhexdigest()
 
-[0;31mKeyError[0m: 'fde471224e1a42f4882ea82483d67c44'
+[0;31mKeyError[0m: 'hello_bob'
 
