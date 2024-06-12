@@ -436,25 +436,16 @@ Message Digest Size:  160
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SHA-224</span>
 <span class="n">message</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
-<span class="n">hash_object</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">hex_dig</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">hash_object</span> <span class="o">=</span> <span class="n">message</span>
+<span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha224</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;c4890faffdb0105d991a461e668e276685401b02eab1ef4372795047&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sanity:  False
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">hex_dig</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;c4890faffdb0105d991a461e668e276685401b02eab1ef4372795047&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: object of type &#39;NoneType&#39; has no len()
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sanity:  True
+Message Digest Size:  224
 </pre></div>
 </div>
 </div>
@@ -463,10 +454,16 @@ Message Digest Size:  160
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SHA-256</span>
 <span class="n">message</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
-<span class="n">hash_object</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">hex_dig</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">hash_object</span> <span class="o">=</span> <span class="n">message</span>
+<span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sanity:  True
+Message Digest Size:  256
 </pre></div>
 </div>
 </div>
@@ -475,10 +472,16 @@ Message Digest Size:  160
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SHA-384</span>
 <span class="n">message</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
-<span class="n">hash_object</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">hex_dig</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">hash_object</span> <span class="o">=</span> <span class="n">message</span>
+<span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha384</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;99514329186b2f6ae4a1329e7ee6c610a729636335174ac6b740f9028396fcc803d0e93863a7c3d90f86beee782f4f3f&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sanity:  True
+Message Digest Size:  384
 </pre></div>
 </div>
 </div>
@@ -487,10 +490,16 @@ Message Digest Size:  160
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SHA-512</span>
 <span class="n">message</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
-<span class="n">hash_object</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">hex_dig</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">hash_object</span> <span class="o">=</span> <span class="n">message</span>
+<span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;2c74fd17edafd80e8447b0d46741ee243b7eb74dd2149a0ab1b9246fb30382f27e853d8585719e0e67cbda0daa8f51671064615d645ae27acb15bfb1447f459b&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sanity:  True
+Message Digest Size:  512
 </pre></div>
 </div>
 </div>
@@ -518,11 +527,11 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
     
     <span class="c1"># generate hashed password using SHA 256</span>
-    <span class="n">hash_code</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
     
     <span class="c1"># make a dictioanry for a database</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-                        <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
+                        <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="n">hash_code</span>
                       <span class="p">}</span>
           <span class="p">}</span>
     
@@ -535,9 +544,9 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">password_database</span><span class="p">):</span>
-    <span class="n">salt</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">checker</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="kc">None</span><span class="p">][</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
+    <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
+    <span class="n">checker</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
     
 </pre></div>
 </div>
@@ -555,6 +564,30 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;hello_bob_12312&#39;</span>
 <span class="n">is_valid</span> <span class="o">=</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">password_database</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid password: &#39;</span><span class="p">,</span> <span class="n">is_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">user_name</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;hello_bob&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">password_database</span> <span class="o">=</span> <span class="n">load_new_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">is_valid</span> <span class="o">=</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">password_database</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid password: &#39;</span><span class="p">,</span> <span class="n">is_valid</span><span class="p">)</span>
+
+<span class="nn">Cell In[7], line 7,</span> in <span class="ni">load_new_password</span><span class="nt">(user_name, password)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># generate hashed password using SHA 256</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># make a dictioanry for a database</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                     <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="n">hash_code</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                   <span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>       <span class="p">}</span>
+
+<span class="ne">TypeError</span>: Strings must be encoded before hashing
 </pre></div>
 </div>
 </div>
