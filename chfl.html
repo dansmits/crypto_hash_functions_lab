@@ -545,7 +545,8 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">password_database</span><span class="p">):</span>
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
-    <span class="n">checker</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">hash_object</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;password&#39;</span> <span class="o">+</span> <span class="n">salt</span>
+    <span class="n">checker</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
     
 </pre></div>
