@@ -19,20 +19,20 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 
 message = b'Hello World'
 hash_object = None
-hex_dig = hashlib.hash_object.hexdigest()
+hex_dig = hashlib.sha1(hash_object).hexdigest()
 print('sanity: ', hex_dig == '0a4d55a8d778e5022fab701977c5d840bbc486d0')
 print('Message Digest Size: ', len(hex_dig) * 4)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;31mTypeError[0m                                 Traceback (most recent call last)
 Cell [0;32mIn[2], line 5[0m
 [1;32m      3[0m message [38;5;241m=[39m [38;5;124mb[39m[38;5;124m'[39m[38;5;124mHello World[39m[38;5;124m'[39m
 [1;32m      4[0m hash_object [38;5;241m=[39m [38;5;28;01mNone[39;00m
-[0;32m----> 5[0m hex_dig [38;5;241m=[39m [43mhashlib[49m[38;5;241;43m.[39;49m[43mhash_object[49m[38;5;241m.[39mhexdigest()
+[0;32m----> 5[0m hex_dig [38;5;241m=[39m [43mhashlib[49m[38;5;241;43m.[39;49m[43msha1[49m[43m([49m[43mhash_object[49m[43m)[49m[38;5;241m.[39mhexdigest()
 [1;32m      6[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124msanity: [39m[38;5;124m'[39m, hex_dig [38;5;241m==[39m [38;5;124m'[39m[38;5;124m0a4d55a8d778e5022fab701977c5d840bbc486d0[39m[38;5;124m'[39m)
 [1;32m      7[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mMessage Digest Size: [39m[38;5;124m'[39m, [38;5;28mlen[39m(hex_dig) [38;5;241m*[39m [38;5;241m4[39m)
 
-[0;31mAttributeError[0m: module 'hashlib' has no attribute 'hash_object'
+[0;31mTypeError[0m: object supporting the buffer API required
 
