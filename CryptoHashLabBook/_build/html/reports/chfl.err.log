@@ -30,7 +30,7 @@ print('Valid password: ', is_valid)
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;31mKeyError[0m                                  Traceback (most recent call last)
 Cell [0;32mIn[9], line 4[0m
 [1;32m      2[0m password [38;5;241m=[39m [38;5;124m'[39m[38;5;124mhello_bob[39m[38;5;124m'[39m
 [1;32m      3[0m password_database [38;5;241m=[39m load_new_password(user_name, password)
@@ -38,11 +38,10 @@ Cell [0;32mIn[9], line 4[0m
 [1;32m      5[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mValid password: [39m[38;5;124m'[39m, is_valid)
 [1;32m      7[0m user_name [38;5;241m=[39m [38;5;124m'[39m[38;5;124mBob[39m[38;5;124m'[39m
 
-Cell [0;32mIn[8], line 3[0m, in [0;36mverify_password[0;34m(user_name, password, password_database)[0m
-[1;32m      1[0m [38;5;28;01mdef[39;00m [38;5;21mverify_password[39m(user_name, password, password_database):
-[1;32m      2[0m     salt [38;5;241m=[39m uuid[38;5;241m.[39muuid4()[38;5;241m.[39mhex
-[0;32m----> 3[0m     checker [38;5;241m=[39m [43mhashlib[49m[38;5;241;43m.[39;49m[43msha256[49m[43m([49m[38;5;28;43mstr[39;49m[38;5;241;43m.[39;49m[43mencode[49m[43m([49m[43mpassword[49m[43m)[49m[43m)[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[43msalt[49m
-[1;32m      4[0m     [38;5;28;01mreturn[39;00m password_database[user_name][password][38;5;241m.[39mhexdigest()  [38;5;241m==[39m checker[38;5;241m.[39mhexdigest()
+Cell [0;32mIn[8], line 5[0m, in [0;36mverify_password[0;34m(user_name, password, password_database)[0m
+[1;32m      3[0m hash_object [38;5;241m=[39m [38;5;28mstr[39m[38;5;241m.[39mencode(password)
+[1;32m      4[0m checker [38;5;241m=[39m hashlib[38;5;241m.[39msha256(hash_object)
+[0;32m----> 5[0m [38;5;28;01mreturn[39;00m [43mpassword_database[49m[43m[[49m[43muser_name[49m[43m][49m[43m[[49m[43mpassword[49m[43m][49m[38;5;241m.[39mhexdigest()  [38;5;241m==[39m checker[38;5;241m.[39mhexdigest()
 
-[0;31mTypeError[0m: unsupported operand type(s) for +: '_hashlib.HASH' and 'str'
+[0;31mKeyError[0m: 'hello_bob'
 
