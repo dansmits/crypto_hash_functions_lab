@@ -4,4 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: /workspaces/crypto_hash_functions_lab/CryptoHashLabBook/chfl.ipynb
+- file: chfl.ipynb
