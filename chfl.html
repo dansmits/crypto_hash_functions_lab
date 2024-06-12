@@ -527,7 +527,8 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
     
     <span class="c1"># generate hashed password using SHA 256</span>
-    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
+    <span class="n">hash_object</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span>
     
     <span class="c1"># make a dictioanry for a database</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
