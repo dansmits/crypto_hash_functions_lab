@@ -419,7 +419,7 @@ by the National Institute of Standards and Technology (NIST) and published as a 
 
 <span class="n">message</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
 <span class="n">hash_object</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">hash_object</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;0a4d55a8d778e5022fab701977c5d840bbc486d0&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
@@ -427,15 +427,15 @@ by the National Institute of Standards and Technology (NIST) and published as a 
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">message</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">hash_object</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">hash_object</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sanity: &#39;</span><span class="p">,</span> <span class="n">hex_dig</span> <span class="o">==</span> <span class="s1">&#39;0a4d55a8d778e5022fab701977c5d840bbc486d0&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Message Digest Size: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: module &#39;hashlib&#39; has no attribute &#39;hash_object&#39;
+<span class="ne">TypeError</span>: object supporting the buffer API required
 </pre></div>
 </div>
 </div>
