@@ -527,7 +527,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
     
     <span class="c1"># generate hashed password using SHA 256</span>
-    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
     
     <span class="c1"># make a dictioanry for a database</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
@@ -550,7 +550,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
                            <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span>
                         <span class="p">}</span>
                 <span class="p">}</span>        
-    <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
+    <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
     
 </pre></div>
 </div>
@@ -587,7 +587,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 <span class="g g-Whitespace">      </span><span class="mi">5</span>                        <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span>                     <span class="p">}</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>             <span class="p">}</span>        
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
 <span class="ne">KeyError</span>: &#39;hello_bob&#39;
 </pre></div>
