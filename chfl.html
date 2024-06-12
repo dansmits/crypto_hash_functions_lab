@@ -527,7 +527,8 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
     
     <span class="c1"># generate hashed password using SHA 256</span>
-    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">hash_object</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span>
+    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
     
     <span class="c1"># make a dictioanry for a database</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
@@ -545,7 +546,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">password_database</span><span class="p">):</span>
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
-    <span class="n">hash_object</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;password&#39;</span>
+    <span class="n">hash_object</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span>
     <span class="n">checker</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span> <span class="o">+</span> <span class="n">salt</span>
     <span class="k">return</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="n">password</span><span class="p">]</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="o">==</span> <span class="n">checker</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
     
@@ -570,7 +571,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">user_name</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;hello_bob&#39;</span>
@@ -581,14 +582,11 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 <span class="nn">Cell In[7], line 7,</span> in <span class="ni">load_new_password</span><span class="nt">(user_name, password)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># generate hashed password using SHA 256</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># make a dictioanry for a database</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>                     <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="n">hash_code</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>                   <span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>       <span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">hash_object</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># make a dictioanry for a database</span>
 
-<span class="ne">TypeError</span>: Strings must be encoded before hashing
+<span class="ne">AttributeError</span>: &#39;str&#39; object has no attribute &#39;byte&#39;
 </pre></div>
 </div>
 </div>
