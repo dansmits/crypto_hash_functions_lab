@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/home/codespace/.cache/pypoetry/virtualenvs/crypto-hash-functions-lab-06WRUrPI-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/codespace/.cache/pypoetry/virtualenvs/crypto-hash-functions-lab-06WRUrPI-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/codespace/.cache/pypoetry/virtualenvs/crypto-hash-functions-lab-06WRUrPI-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/local/python/3.10.13/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/codespace/.cache/pypoetry/virtualenvs/crypto-hash-functions-lab-06WRUrPI-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/codespace/.cache/pypoetry/virtualenvs/crypto-hash-functions-lab-06WRUrPI-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.cache/pypoetry/virtualenvs/crypto-hash-functions-lab-06WRUrPI-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# SHA-1
+
+message = b'Hello World'
+hash_object = None
+hex_dig = hash_object.hexdigest()
+print('sanity: ', hex_dig == '0a4d55a8d778e5022fab701977c5d840bbc486d0')
+print('Message Digest Size: ', len(hex_dig) * 4)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[2], line 5[0m
+[1;32m      3[0m message [38;5;241m=[39m [38;5;124mb[39m[38;5;124m'[39m[38;5;124mHello World[39m[38;5;124m'[39m
+[1;32m      4[0m hash_object [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[0;32m----> 5[0m hex_dig [38;5;241m=[39m [43mhash_object[49m[38;5;241;43m.[39;49m[43mhexdigest[49m()
+[1;32m      6[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124msanity: [39m[38;5;124m'[39m, hex_dig [38;5;241m==[39m [38;5;124m'[39m[38;5;124m0a4d55a8d778e5022fab701977c5d840bbc486d0[39m[38;5;124m'[39m)
+[1;32m      7[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mMessage Digest Size: [39m[38;5;124m'[39m, [38;5;28mlen[39m(hex_dig) [38;5;241m*[39m [38;5;241m4[39m)
+
+[0;31mAttributeError[0m: 'NoneType' object has no attribute 'hexdigest'
+

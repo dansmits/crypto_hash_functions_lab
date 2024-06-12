@@ -4,4 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: cryptographic_hash_functions_lab.ipynb
+- file: chfl.ipynb
