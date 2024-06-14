@@ -400,7 +400,6 @@ document.write(`
 <h1>Hash Functions<a class="headerlink" href="#hash-functions" title="Link to this heading">#</a></h1>
 <p>A hash function <span class="math notranslate nohighlight">\(H\)</span> accepts a variable-length block of data <span class="math notranslate nohighlight">\(M\)</span>  as input and produces a fixed-size hash value <span class="math notranslate nohighlight">\(h =  H(M)\)</span>. A “good” hash function has the property that the results of applying the function to a large set of inputs will produce outputs that are evenly distributed and apparently random. In general terms, the principal object of a
 hash function is data integrity. A change to any bit or bits in M  results, with high probability, in a change to the hash code.</p>
-<img src='hash_functions_images/crypto_hash_function.png' width=50%>
 <p>The kind of hash function needed for security applications is referred to as a cryptographic hash function . A cryptographic hash function is an algorithm for which it is computationally infeasible (because no attack is significantly more efficient than brute force) to find either</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> a. a data object that maps to a pre-specified hash result (the one-way property) or 
  b. two data objects that map to the same hash result (the collision-free property). 
@@ -411,7 +410,6 @@ hash function is data integrity. A change to any bit or bits in M  results, with
 <h2>Secure Hash Algorithm (SHA)<a class="headerlink" href="#secure-hash-algorithm-sha" title="Link to this heading">#</a></h2>
 <p>In recent years, the most widely used hash function has been the Secure Hash Algorithm (SHA). SHA was developed
 by the National Institute of Standards and Technology (NIST) and published as a federal information processing standard (FIPS 180) in 1993. When weaknesses were discovered in SHA, now known as SHA-0, a revised version was issued as FIPS 180-1 in 1995 and is referred to as SHA-1. SHA-1 produces a hash value of 160 bits. In 2002, NIST  defined three new versions of SHA, with hash value lengths of 256, 384, and 512 bits, known as SHA-256, SHA-384, and SHA-512, respectively. Collectively, these hash algorithms are known as SHA-2. These new versions have the same underlying structure and use the same types of modular arithmetic and logical binary operations as SHA-1.</p>
-<img src='hash_functions_images/sha_comparision.png' width=50%>
 <p><strong>Exercise:</strong> Using the hashlib pakage (see: <a class="reference external" href="https://docs.python.org/3/library/hashlib.html">https://docs.python.org/3/library/hashlib.html</a>), generate hash values for a given message using the SHA algorithms listed above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
