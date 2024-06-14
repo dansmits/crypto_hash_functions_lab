@@ -527,8 +527,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
     <span class="n">salt</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
     
     <span class="c1"># generate hashed password using SHA 256</span>
-    <span class="n">hash_object</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span> <span class="o">+</span> <span class="n">salt</span><span class="p">))</span>
-    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span> <span class="o">+</span> <span class="n">salt</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
     
     <span class="c1"># make a dictioanry for a database</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
@@ -549,8 +548,7 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
     <span class="n">stored_salt</span> <span class="o">=</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="s1">&#39;SALT&#39;</span><span class="p">]</span>
 
     <span class="c1"># Combine the password and stored salt, then generate hashed password using SHA 256</span>
-    <span class="n">hash_object</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span> <span class="o">+</span> <span class="n">stored_salt</span><span class="p">))</span>
-    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">hash_object</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span> <span class="o">+</span> <span class="n">stored_salt</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
     <span class="c1"># Retrieve the stored hash code from the database</span>
     <span class="n">stored_hash_code</span> <span class="o">=</span> <span class="n">password_database</span><span class="p">[</span><span class="n">user_name</span><span class="p">][</span><span class="s1">&#39;HASH_CODE&#39;</span><span class="p">]</span>
@@ -578,26 +576,8 @@ hashing algorithm to produce a fixed-length hash code. The hashed password is th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">user_name</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;hello_bob&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">password_database</span> <span class="o">=</span> <span class="n">load_new_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">is_valid</span> <span class="o">=</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">password_database</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid password: &#39;</span><span class="p">,</span> <span class="n">is_valid</span><span class="p">)</span>
-
-<span class="nn">Cell In[7], line 8,</span> in <span class="ni">load_new_password</span><span class="nt">(user_name, password)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># generate hashed password using SHA 256</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">hash_object</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span> <span class="o">+</span> <span class="n">salt</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">hash_code</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_object</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># make a dictioanry for a database</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">user_name</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;SALT&#39;</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>                     <span class="s1">&#39;HASH_CODE&#39;</span><span class="p">:</span> <span class="n">hash_code</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>                   <span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>       <span class="p">}</span>
-
-<span class="ne">TypeError</span>: object supporting the buffer API required
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valid password:  True
+Valid password:  False
 </pre></div>
 </div>
 </div>
