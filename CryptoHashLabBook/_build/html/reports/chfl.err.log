@@ -41,7 +41,7 @@ Cell [0;32mIn[9], line 3[0m
 Cell [0;32mIn[7], line 8[0m, in [0;36mload_new_password[0;34m(user_name, password)[0m
 [1;32m      6[0m [38;5;66;03m# generate hashed password using SHA 256[39;00m
 [1;32m      7[0m hash_object [38;5;241m=[39m hashlib[38;5;241m.[39msha256([38;5;28mstr[39m[38;5;241m.[39mencode(password [38;5;241m+[39m salt))
-[0;32m----> 8[0m hash_code [38;5;241m=[39m [43mhashlib[49m[38;5;241;43m.[39;49m[43msha256[49m[43m([49m[43mhash_object[49m[43m)[49m
+[0;32m----> 8[0m hash_code [38;5;241m=[39m [43mhashlib[49m[38;5;241;43m.[39;49m[43msha256[49m[43m([49m[43mhash_object[49m[43m)[49m[38;5;241m.[39mhexdigest()
 [1;32m     10[0m [38;5;66;03m# make a dictioanry for a database[39;00m
 [1;32m     11[0m ret [38;5;241m=[39m {user_name: {[38;5;124m'[39m[38;5;124mSALT[39m[38;5;124m'[39m: salt,
 [1;32m     12[0m                     [38;5;124m'[39m[38;5;124mHASH_CODE[39m[38;5;124m'[39m: hash_code
